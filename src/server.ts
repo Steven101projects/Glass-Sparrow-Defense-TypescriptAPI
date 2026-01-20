@@ -8,7 +8,7 @@ dotenv.config();
 
 const PORT = process.env.PORT || 3000;
 
-/* NOTE: A simulated safe function that ensures that connection to DB
+/* NOTE: A simulated safe async function that ensures that connection to DB
 is established first before running the server.  */
 const startServer = async() => {
     await connectDatabase();
@@ -18,8 +18,8 @@ const startServer = async() => {
    });
 
     app.listen(PORT, ()=>{
-    console.log(`Receiving Signal from GSP API PORT: ${PORT}`);
-    console.log(`Locally LIVE on: http://localhost:3000/`);
+    console.log(`Succesfully receiving signal from GSD API PORT: ${PORT}`);
+    console.log(`LIVE Locally on: http://localhost:3000/`);
 })
 };
 
