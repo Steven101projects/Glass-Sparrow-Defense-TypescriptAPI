@@ -19,7 +19,7 @@ export const getArmedForce = async (req: Request, res: Response): Promise<void> 
 
         const armedForce = ArmedForces.findOne({ name });
 
-        if(!name){
+        if(!armedForce){
             res.status(400).json({
                 message: "Armed Force not found in the Database"
             });

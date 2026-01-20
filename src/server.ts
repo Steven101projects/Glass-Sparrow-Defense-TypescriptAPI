@@ -1,14 +1,16 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import { connectDatabase } from "./config/database"
+import app from "./app";
 
-const app = express();
+// const app = express();
 
 dotenv.config();
 
 const PORT = process.env.PORT || 3000;
 
-/* NOTE: A simulated safe async function that ensures that connection to DB
+/* NOTE: 
+A simulated safe async function that ensures that connection to DB
 is established first before running the server.  */
 const startServer = async() => {
     await connectDatabase();

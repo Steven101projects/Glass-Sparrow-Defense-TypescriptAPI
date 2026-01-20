@@ -23,9 +23,9 @@ export const getIntel = async (req: Request, res: Response): Promise<void> => {
             res.status(400).json({
                 message: "Intel not found in the Database"
             });
+            return;
         }
-        return;
-    } catch {
+    } catch(error) {
         res.status(500).json({
              message: "Failed to fetch the intel you're looking for"
         })
