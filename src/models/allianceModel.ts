@@ -15,7 +15,13 @@ const allianceModel = new mongoose.Schema({
    website: {
     type: String,
     required: true
-   }
+   },
+    country: [
+    {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Country"
+    }
+    ]
 })
 
 export default mongoose.model("Alliance", allianceModel);

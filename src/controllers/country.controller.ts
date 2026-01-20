@@ -23,12 +23,12 @@ export const getCountryByIsoCode = async ( req: Request, res: Response): Promise
 
         if(!country) {
             res.status(400).json({
-                message: "Country not found"
+                message: "Country not found in the Database"
             });
             return;
             }
     } catch (error) {
-        res.status(200).json({
+        res.status(500).json({
             message: "Failed to fetch the country you're looking for"
         })
     }
