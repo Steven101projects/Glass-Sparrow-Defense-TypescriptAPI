@@ -3,7 +3,7 @@ import { Request, Response } from "express"
 
 export const getAllAlliance = async (req: Request, res: Response): Promise<void> => {
     try {
-        const alliances = Alliance.find();
+        const alliances = await Alliance.find();
 
         res.status(200).json(alliances);
     } catch(error){
@@ -16,7 +16,7 @@ export const getAllAlliance = async (req: Request, res: Response): Promise<void>
 export const getOneAlliance = async (req: Request, res: Response): Promise<void> => {
     try {
         const name = req.params;
-        const alliance = Alliance.findOne({ name });
+        const alliance = await Alliance.findOne({ name });
 
         if(!alliance){
             res.status(400).json({

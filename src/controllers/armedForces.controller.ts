@@ -4,7 +4,7 @@ import {Request, Response} from "express";
 
 export const getAllArmedForces = async (req: Request, res: Response): Promise<void> => {
     try {
-        const armedforces = ArmedForces.find();
+        const armedforces = await ArmedForces.find();
 
         res.status(200).json(armedforces);
     } catch(error){
@@ -18,7 +18,7 @@ export const getArmedForce = async (req: Request, res: Response): Promise<void> 
     try {
         const name = req.params;
 
-        const armedForce = ArmedForces.findOne({ name });
+        const armedForce = await ArmedForces.findOne({ name });
 
         if(!armedForce){
             res.status(400).json({
